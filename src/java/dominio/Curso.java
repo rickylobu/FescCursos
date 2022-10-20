@@ -17,19 +17,31 @@ public class Curso {
         private int id_Profesor;
         private String nombre;
         private String descripcion;
-        InputStream archivoimg;
+        private String categoria;
+        private String rutaImg;
 
-    public Curso(int id_Curso, int id_Profesor, String nombre, String descripcion, InputStream archivoimg) {
+    public Curso(int id_Curso, int id_Profesor, String nombre, String descripcion, String categoria, String rutaImg) {
         this.id_Curso = id_Curso;
         this.id_Profesor = id_Profesor;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.archivoimg = archivoimg;
+        this.categoria = categoria;
+        this.rutaImg = rutaImg;
     }
+
+  
 
    
 
     public Curso() {
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     
@@ -66,16 +78,15 @@ public class Curso {
         this.descripcion = descripcion;
     }
 
-    public InputStream getArchivoimg() {
-        return archivoimg;
+    public String getRutaImg() {
+        return rutaImg;
     }
 
-    public void setArchivoimg(InputStream archivoimg) {
-        this.archivoimg = archivoimg;
+    public void setRutaImg(String rutaImg) {
+        this.rutaImg = rutaImg;
     }
 
-     
-
+    
         
         
 }

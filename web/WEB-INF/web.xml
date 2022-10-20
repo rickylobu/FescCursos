@@ -5,16 +5,40 @@
         <servlet-class>controlador.pruebaServletDao</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControlerIMG</servlet-name>
-        <servlet-class>controlador.ControlerIMG</servlet-class>
+        <servlet-name>CursoImg</servlet-name>
+        <servlet-class>controlador.CursoImg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarCurso</servlet-name>
+        <servlet-class>controlador.EditarCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActualizarCurso</servlet-name>
+        <servlet-class>controlador.ActualizarCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarCurso</servlet-name>
+        <servlet-class>controlador.EliminarCurso</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControlerIMG</servlet-name>
-        <url-pattern>/ControlerIMG</url-pattern>
+        <servlet-name>CursoImg</servlet-name>
+        <url-pattern>/CursoImg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCurso</servlet-name>
+        <url-pattern>/EditarCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarCurso</servlet-name>
+        <url-pattern>/ActualizarCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarCurso</servlet-name>
+        <url-pattern>/EliminarCurso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

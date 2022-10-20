@@ -2,9 +2,7 @@
 package dao;
 
 import dominio.Curso;
-import dominio.Usuario;
 import java.util.List;
-import javax.servlet.http.HttpServletResponse;
 
 
 public interface DaoCurso {
@@ -16,5 +14,6 @@ public interface DaoCurso {
     public Curso BusCursoXNombre(String nombreCurso)throws Exception;
     public List<Curso> ListarTodos()throws Exception;
     public List<Curso> ListarCursosXidProf(int idProf)throws Exception;
-    public void ListarImagen (int id, HttpServletResponse response)throws Exception;
+    public boolean PruebaConexion() throws Exception;
+    public String BusImagenSinRuta(Curso cur) throws Exception;
 }

@@ -10,21 +10,28 @@ import dao.DaoUsuario;
 import dao.DaoUsuarioImpl;
 import dominio.Curso;
 import dominio.Usuario;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
  * @author Ricardo
  */
+@MultipartConfig
 public class pruebaServletDao extends HttpServlet {
 
     /**
@@ -66,20 +73,21 @@ public class pruebaServletDao extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
+        //response.sendRedirect("index.jsp");
+        request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
+        //response.setContentType("text/html;charset=UTF-8");
+        //PrintWriter out = response.getWriter();
         //___________________________________________________________
         //_______________PRUEBAS DE USUARIO_____________________
         //__________________prueba insertar usuario_____________________
-        
+        /*
         LocalDate fecha_Nac = LocalDate.of(1996,12 ,03);
         java.sql.Date fechaSql=java.sql.Date.valueOf(fecha_Nac);
         
                                 //int id_Usuario, String correo, String contraseña, String nombre, String apellidos, Date fecha_Nac, Boolean alumno, boolean profesor
         Usuario usr=new Usuario(0,"correoEder@ejemploDao","4561","NombreEjemplo4","ApellidosEjemplo4",fechaSql,false,true);
                 
-        /*
+        
         try{
         DaoUsuario dao =new DaoUsuarioImpl();
         dao.Registrar(usr);
@@ -176,14 +184,14 @@ public class pruebaServletDao extends HttpServlet {
         out.println("<br>____Usuario encontrado con exito_____");
 
         }catch(Exception e){
+        //_________________prueba Listar Todos Usuario_____________________ 
             out.println(e.getMessage());
             out.println("<br>usuario no encontrado");
 
         }
         
          */
-        //_________________prueba Listar Todos Usuario_____________________ 
-        /*
+ /*
         try{
         DaoUsuario dao =new DaoUsuarioImpl();
         for (Usuario u : dao.ListarTodos()){
@@ -249,23 +257,35 @@ public class pruebaServletDao extends HttpServlet {
         Curso cur = new Curso();
 
         String accion = request.getParameter("accion");
-        switch (accion) {
-            case "Listar":
+        if (accion != null) {
+            switch (accion) {
+                case "Listar":
                     try {
-                List<Curso> lista = dao.ListarTodos();
-                request.setAttribute("lista", lista);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                    List<Curso> lista = dao.ListarTodos();
+                    request.setAttribute("lista", lista);
+                    RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("index.jsp");
+                    miRequestDispatcher.forward(request, response);
 
-            } catch (Exception ex) {
-                Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                } catch (Exception ex) {
+                    Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-            break;
-
-            default:
-                request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
                 break;
 
+                case "Nuevo":
+                    request.getRequestDispatcher("agregarCurso.jsp").forward(request, response);
+
+                    break;
+
+                
+
+                default:
+                    request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
+                    break;
+
+                    
+                    
+            }
         }
 
     }
