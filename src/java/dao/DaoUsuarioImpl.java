@@ -5,6 +5,8 @@
 package dao;
 
 import dominio.Usuario;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO `Usuario`(`idUsuario`, `correo`, `contraseña`, `nombre`, `apellidos`, `fechaNac`, `alumno`, `profesor`) VALUES ((?),(?),(?),(?),(?),(?),(?),(?));");
+            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO `Usuario`(`idUsuario`, `correo`, `contraseña`, `nombre`, `apellidos`, `fechaNac`, `alumno`, `profesor`, `admin`) VALUES ((?),(?),(?),(?),(?),(?),(?),(?),(?));");
             st.setInt(1, 0);
             st.setString(2, usr.getCorreo());
             st.setString(3, usr.getContraseña());
@@ -32,18 +34,13 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             java.sql.Date datesql = new java.sql.Date(timeInMilliSeconds);
             st.setDate(6, datesql);
 
-            int alumno;
-            int prof;
-            if (usr.isProfesor()) {
-                alumno = 0;
-                prof = 1;
+            int alumno = 1;
+            int prof = 0;
+            int admin = 0;
 
-            } else {
-                alumno = 1;
-                prof = 0;
-            }
             st.setInt(7, alumno);
             st.setInt(8, prof);
+            st.setInt(9, admin);
 
             st.executeUpdate();
         } catch (Exception e) {
@@ -59,7 +56,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("UPDATE `Usuario` SET `correo`= ?, `contraseña`= ?, `nombre`= ?, `apellidos`= ?, `fechaNac`= ?, `alumno`= ?, `profesor`= ? WHERE `idUsuario`= ?;");
+            PreparedStatement st = this.conexion.prepareStatement("UPDATE `Usuario` SET `correo`= ?, `contraseña`= ?, `nombre`= ?, `apellidos`= ?, `fechaNac`= ? WHERE `idUsuario`= ?;");
             st.setString(1, usr.getCorreo());
             st.setString(2, usr.getContraseña());
             st.setString(3, usr.getNombre());
@@ -69,20 +66,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             long timeInMilliSeconds = date.getTime();
             java.sql.Date datesql = new java.sql.Date(timeInMilliSeconds);
             st.setDate(5, datesql);
-
-            int alumno;
-            int prof;
-            if (usr.isProfesor()) {
-                alumno = 0;
-                prof = 1;
-
-            } else {
-                alumno = 1;
-                prof = 0;
-            }
-            st.setInt(6, alumno);
-            st.setInt(7, prof);
-            st.setInt(8, usr.getId_Usuario());
+            st.setInt(6, usr.getId_Usuario());
 
             st.executeUpdate();
         } catch (Exception e) {
@@ -122,7 +106,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
             }
             rs.close();
             st.close();
@@ -147,7 +131,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
             }
             rs.close();
             st.close();
@@ -173,7 +157,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
             }
             rs.close();
             st.close();
@@ -200,7 +184,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
 
                 lista.add(usr);
 
@@ -230,7 +214,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
 
                 lista.add(usr);
 
@@ -260,7 +244,7 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8));
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
 
                 lista.add(usr);
 
@@ -275,6 +259,65 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
 
         return lista;
 
+    }
+
+    @Override
+    public String GetMD5(String input) throws Exception {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] encBytes = md.digest(input.getBytes());
+            BigInteger numero = new BigInteger(1, encBytes);
+            String encString = numero.toString(16);
+            while (encString.length() < 32) {
+                encString = "0" + encString;
+            }
+            return encString;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void HacerProfesor(Usuario usr) throws Exception {
+        int alumno = 0;
+        int prof = 1;
+        int admin = 0;
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("UPDATE `Usuario` SET `alumno`= ?, `profesor`= ?, `admin`= ? WHERE `idUsuario`= ?;");
+            st.setInt(1, alumno);
+            st.setInt(2, prof);
+            st.setInt(3, admin);
+            st.setInt(4, usr.getId_Usuario());
+
+            st.executeUpdate();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+    }
+
+    @Override
+    public void HacerAdmin(Usuario usr) throws Exception {
+        int alumno = 0;
+        int prof = 0;
+        int admin = 1;
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("UPDATE `Usuario` SET `alumno`= ?, `profesor`= ?, `admin`= ? WHERE `idUsuario`= ?;");
+            st.setInt(1, alumno);
+            st.setInt(2, prof);
+            st.setInt(3, admin);
+            st.setInt(4, usr.getId_Usuario());
+
+            st.executeUpdate();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
     }
 
 }

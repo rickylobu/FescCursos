@@ -20,6 +20,14 @@
         <servlet-name>EliminarCurso</servlet-name>
         <servlet-class>controlador.EliminarCurso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Registarse</servlet-name>
+        <servlet-class>controlador.Registarse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IniciarSesion</servlet-name>
+        <servlet-class>controlador.IniciarSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>EliminarCurso</servlet-name>
         <url-pattern>/EliminarCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registarse</servlet-name>
+        <url-pattern>/Registarse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IniciarSesion</servlet-name>
+        <url-pattern>/IniciarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

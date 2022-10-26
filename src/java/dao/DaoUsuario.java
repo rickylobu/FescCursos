@@ -15,5 +15,7 @@ public interface DaoUsuario {
     public List<Usuario> ListarTodos()throws Exception;
     public List<Usuario> ListarAlumnos()throws Exception;
     public List<Usuario> ListarProfesores()throws Exception;
-    
+    public String GetMD5 (String input) throws Exception;
+    public void HacerProfesor (Usuario usr)throws Exception;
+    public void HacerAdmin (Usuario usr)throws Exception;
 }

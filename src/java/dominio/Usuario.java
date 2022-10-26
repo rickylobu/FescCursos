@@ -19,8 +19,9 @@ public class Usuario {
     private Date fecha_Nac;
     private boolean alumno;
     private boolean profesor;
+    private boolean admin;
 
-    public Usuario(int id_Usuario, String correo, String contraseña, String nombre, String apellidos, Date fecha_Nac, Boolean alumno, boolean profesor) {
+    public Usuario(int id_Usuario, String correo, String contraseña, String nombre, String apellidos, Date fecha_Nac, boolean alumno, boolean profesor, boolean admin) {
         this.id_Usuario = id_Usuario;
         this.correo = correo;
         this.contraseña = contraseña;
@@ -29,7 +30,32 @@ public class Usuario {
         this.fecha_Nac = fecha_Nac;
         this.alumno = alumno;
         this.profesor = profesor;
+        this.admin = admin;
     }
+
+    public Usuario(int id_Usuario, String correo, String nombre, String apellidos, Date fecha_Nac, boolean alumno, boolean profesor, boolean admin) {
+        this.id_Usuario = id_Usuario;
+        this.correo = correo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fecha_Nac = fecha_Nac;
+        this.alumno = alumno;
+        this.profesor = profesor;
+        this.admin = admin;
+    }
+    
+    
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+
+    
 
     public int getId_Usuario() {
         return id_Usuario;

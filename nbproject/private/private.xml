@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/ActualizarCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/pruebaServletDao.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/agregarCurso.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/header.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursoImg.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/EditarCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/index.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/WEB-INF/web.xml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
