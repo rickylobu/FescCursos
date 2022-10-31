@@ -130,13 +130,13 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Curso`;");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario;");
 
             lista = new ArrayList();
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),rs.getString(7));
 
                 lista.add(cur);
 

@@ -22,7 +22,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="flex-direction: row;" >
                         <li class="nav-item">
-                            <strong><a class="nav-link" href="Categorias?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Categorias</a></strong>
+                            <strong><a class="nav-link" href="CursosTodos?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Cursos</a></strong>
                         </li>
                         <li class="nav-item">
                             <strong><a class="nav-link" href="Asesorias?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Asesorias</a></strong>
@@ -60,7 +60,7 @@
                             if (sesion.getAttribute("tipo") == "admin") {
                         %>
 
-                        <li><a class="dropdown-item" href="administrador.jsp">Administrador</a></li>
+                        <li><a class="dropdown-item" href="AdminDesplegar">Administrador</a></li>
 
                         <%
                             }

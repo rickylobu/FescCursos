@@ -28,6 +28,26 @@
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>controlador.IniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminDesplegar</servlet-name>
+        <servlet-class>controlador.AdminDesplegar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HacerProfesor</servlet-name>
+        <servlet-class>controlador.HacerProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HacerAlumno</servlet-name>
+        <servlet-class>controlador.HacerAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HacerAdmin</servlet-name>
+        <servlet-class>controlador.HacerAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CursosTodos</servlet-name>
+        <servlet-class>controlador.CursosTodos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -55,6 +75,26 @@
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDesplegar</servlet-name>
+        <url-pattern>/AdminDesplegar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HacerProfesor</servlet-name>
+        <url-pattern>/HacerProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HacerAlumno</servlet-name>
+        <url-pattern>/HacerAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HacerAdmin</servlet-name>
+        <url-pattern>/HacerAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CursosTodos</servlet-name>
+        <url-pattern>/CursosTodos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -320,4 +320,53 @@ public class DaoUsuarioImpl extends ConexionClever implements DaoUsuario {
         }
     }
 
+    @Override
+    public List<Usuario> ListarAdministradores() throws Exception {
+        List<Usuario> lista = null;
+
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Usuario` WHERE `admin`= 1;");
+
+            lista = new ArrayList();
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getBoolean(7), rs.getBoolean(8), rs.getBoolean(9));
+
+                lista.add(usr);
+
+            }
+            rs.close();
+            st.close();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public void HacerAlumno(Usuario usr) throws Exception {
+        int alumno = 1;
+        int prof = 0;
+        int admin = 0;
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("UPDATE `Usuario` SET `alumno`= ?, `profesor`= ?, `admin`= ? WHERE `idUsuario`= ?;");
+            st.setInt(1, alumno);
+            st.setInt(2, prof);
+            st.setInt(3, admin);
+            st.setInt(4, usr.getId_Usuario());
+
+            st.executeUpdate();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+    }
+
 }

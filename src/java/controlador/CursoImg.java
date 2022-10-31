@@ -21,6 +21,9 @@ import javax.servlet.http.Part;
 import dao.DaoCurso;
 import dao.DaoCursoImpl;
 import dominio.Curso;
+import dominio.Usuario;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,9 +31,6 @@ import dominio.Curso;
  */
 @MultipartConfig
 public class CursoImg extends HttpServlet {
-
-    
-    
 
     private static final long serialVersionUID = 1L;
     private DaoCurso dao = new DaoCursoImpl();
@@ -56,7 +56,7 @@ public class CursoImg extends HttpServlet {
             case "Guardar":
                 GuardarCurso(request, response);
                 break;
-                
+
             default:
                 request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
 
@@ -64,31 +64,40 @@ public class CursoImg extends HttpServlet {
         }
     }
 
-    private void GuardarCurso(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            int idCurso = 0;//autoincrementable en BD
-            int idProf = 1;//pendiente extraer de session al loguearse
-            String nombreCur = request.getParameter("nombreCurso");
-            String categoria = request.getParameter("categoria");
-            String descripcion = request.getParameter("descripcion");
-            Part part = request.getPart("imagen");
+    private void GuardarCurso(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession sesion = request.getSession();
+        if (sesion.getAttribute("tipo") == "profesor") {
+            try {
+                int idCurso = 0;//autoincrementable en BD
+                Usuario prof = (Usuario) sesion.getAttribute("user");
+                int idProf = prof.getId_Usuario();
+                String nombreCur = request.getParameter("nombreCurso");
+                String categoria = request.getParameter("categoria");
+                String descripcion = request.getParameter("descripcion");
+                Part part = request.getPart("imagen");
 
-            if (part == null) {
-                System.out.println("No ha seleccionado un archivo");
-                return;
+                if (part == null) {
+                    System.out.println("No ha seleccionado un archivo");
+                    return;
+                }
+
+                if (isExtension(part.getSubmittedFileName(), extens)) {
+                    String photo = "img\\imgCursos\\" + saveFile(part, uploads);
+                    Curso nuevoCurso = new Curso(idCurso, idProf, nombreCur, descripcion, categoria, photo);
+                    dao.Registrar(nuevoCurso);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        } else {
+            String respuesta = "Usted no es profesor, No puede agregar un curso. sorry!...";
+            request.setAttribute("resp", respuesta);
 
-            if (isExtension(part.getSubmittedFileName(), extens)) {
-                String photo = "img\\imgCursos\\" + saveFile(part, uploads);
-                Curso nuevoCurso = new Curso(idCurso, idProf, nombreCur, descripcion,categoria, photo);
-                dao.Registrar(nuevoCurso);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        response.sendRedirect("/FescCursos/index.jsp");
+        RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("index.jsp");
+        miRequestDispatcher.forward(request, response);
     }
 
     private String saveFile(Part part, File pathUploads) {
@@ -124,16 +133,16 @@ public class CursoImg extends HttpServlet {
     }
 
     private boolean deleteFile(Curso cur, File pathUploads) {
-        String img =null;
+        String img = null;
 
         File f = null;
         boolean bool = false;
 
         try {
             // create new file
-            img=dao.BusImagenSinRuta(cur);
+            img = dao.BusImagenSinRuta(cur);
             f = new File(pathUploads, img);
-            
+
             // tries to delete a non-existing file
             bool = f.delete();
 
