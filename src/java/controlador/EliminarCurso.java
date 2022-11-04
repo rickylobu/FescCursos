@@ -28,11 +28,13 @@ public class EliminarCurso extends HttpServlet {
     private String pathFiles = "C:\\Users\\Ricardo\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
     private File uploads = new File(pathFiles);
     private String[] extens = {".ico", ".png", ".jpg", ".jpeg"};
+    
+    private DaoCurso dao = new DaoCursoImpl();
+
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        DaoCurso dao = new DaoCursoImpl();
 
         int id = Integer.parseInt(request.getParameter("id"));
 

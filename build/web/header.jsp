@@ -11,14 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <nav class="navbar" style="background-color:#00113D;" >
+        <nav class="navbar navbar-expand-md" style="background-color:#00113D;" >
             <div class="container-fluid">
+                <center>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <a href="index.jsp">
                         <img src="img/logoFesc.png" alt="insert" width="92" height="103" padding="2px" />
-
-                    </a>
+                        <h6 class="nav-item" style="color: #AA9A70; font-size: small;"">Home</h6>                    </a>
                 </div>
+                    </center>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="flex-direction: row;" >
                         <li class="nav-item">
@@ -45,7 +46,7 @@
                                 if (sesion.getAttribute("tipo") == "alumno") {
                             %>
 
-                        <li><a class="dropdown-item" href="MisCursosAlumno?<%=sesion.getAttribute("id")%>">Mis Cursos</a></li>
+                        <li><a class="dropdown-item" href="MisCursosAlumno">Mis Cursos</a></li>
 
 
                         <%
@@ -53,7 +54,7 @@
                             if (sesion.getAttribute("tipo") == "profesor") {
                         %>
 
-                        <li><a class="dropdown-item" href="MisCursosProfesor?<%=sesion.getAttribute("id")%>">Mis Cursos</a></li>
+                        <li><a class="dropdown-item" href="MisCursosProfesor">Mis Cursos</a></li>
 
                         <%
                             }
@@ -79,6 +80,7 @@
                             }
                         %>
                 </div>
+            </div>
         </nav>
 
 

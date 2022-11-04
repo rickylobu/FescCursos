@@ -20,15 +20,16 @@
         <jsp:include page="header.jsp"></jsp:include>
         <%
             List<Curso> Cursos = (List<Curso>) request.getAttribute("lista");
-            String resp = (String) request.getAttribute("resp");
         %>
         <div class="container-sm">
             <div class="card" >
                 <center><div class="card-header">
-                    Todos los Cursos
-                </div></center>
+                        Todos los Cursos
+                    </div></center>
 
-                <% if (Cursos != null) {
+                <% if (Cursos.isEmpty()) {
+
+                    } else {
                         int fila = 0;
                         for (Curso curTemp : Cursos) {
                             if (fila == 0) {%>
@@ -53,12 +54,11 @@
                         if (fila == 3) {%>
                 </div>
                 <%  fila = 0;
-                            }
-
                         }
+
                     }%>
 
-
+                <%}%>
             </div>
     </body>
 </html>

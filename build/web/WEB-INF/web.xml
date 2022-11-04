@@ -48,6 +48,26 @@
         <servlet-name>CursosTodos</servlet-name>
         <servlet-class>controlador.CursosTodos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MisCursosProfesor</servlet-name>
+        <servlet-class>controlador.MisCursosProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MisCursosAlumno</servlet-name>
+        <servlet-class>controlador.MisCursosAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerCurso</servlet-name>
+        <servlet-class>controlador.VerCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MisCursosAgregar</servlet-name>
+        <servlet-class>controlador.MisCursosAgregar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarMisCursos</servlet-name>
+        <servlet-class>controlador.EliminarMisCursos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -95,6 +115,26 @@
     <servlet-mapping>
         <servlet-name>CursosTodos</servlet-name>
         <url-pattern>/CursosTodos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MisCursosProfesor</servlet-name>
+        <url-pattern>/MisCursosProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MisCursosAlumno</servlet-name>
+        <url-pattern>/MisCursosAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerCurso</servlet-name>
+        <url-pattern>/VerCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MisCursosAgregar</servlet-name>
+        <url-pattern>/MisCursosAgregar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarMisCursos</servlet-name>
+        <url-pattern>/EliminarMisCursos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

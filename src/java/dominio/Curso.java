@@ -19,8 +19,9 @@ public class Curso {
         private String descripcion;
         private String categoria;
         private String rutaImg;
+        
         private String nombreProf;
-
+        
 
     public Curso(int id_Curso, int id_Profesor, String nombre, String descripcion, String categoria, String rutaImg) {
         this.id_Curso = id_Curso;
@@ -40,6 +41,8 @@ public class Curso {
         this.rutaImg = rutaImg;
         this.nombreProf = nombreProf;
     }
+
+    
 
     
     

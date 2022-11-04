@@ -11,21 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="boostrap.jsp"></jsp:include>
-
+        <title>Editar Curso</title>
         </head>
         <body>
         <jsp:include page="header.jsp"></jsp:include>
-            <br>    
-        <center>
-            <form action="pruebaServletDao" method="POST">
-                <input type="submit" name="accion" value="Listar">
-
-            </form>
+            <br>  
         <%
-
             Curso curso = (Curso) request.getAttribute("curEdit");
-
         %>
+        <center>
         <div class="container-sm">
             <div class="card" >
                 <div class="card-header">

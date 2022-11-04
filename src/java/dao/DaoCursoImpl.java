@@ -5,6 +5,7 @@
 package dao;
 
 import dominio.Curso;
+import dominio.MisCursos;
 import dominio.Practica;
 import dominio.Usuario;
 import java.io.BufferedInputStream;
@@ -130,13 +131,13 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario;");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario ORDER BY Curso.nombre AND Usuario.nombre ;");
 
             lista = new ArrayList();
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),rs.getString(7));
+                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
 
                 lista.add(cur);
 
@@ -159,6 +160,7 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
         try {
             this.Conectar();
             PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Curso` WHERE `idProfesor`= (?);");
+            st.setInt(1, idProf);
 
             lista = new ArrayList();
             rs = st.executeQuery();
@@ -203,12 +205,12 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Curso` WHERE `idCurso`=(?);");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario WHERE Curso.idCurso=(?) ORDER BY Curso.nombre AND Usuario.nombre ;");
             st.setInt(1, id);
             rs = st.executeQuery();
 
             while (rs.next()) {
-                cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
 
             }
             rs.close();
@@ -246,6 +248,124 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
         }
 
         return img;
+    }
+
+    @Override
+    public List<Curso> BusCursosXMisCursos(List<MisCursos> misCursos) throws Exception {
+
+        List<Curso> CursosAlumno = null;
+        try {
+            this.Conectar();
+            CursosAlumno = new ArrayList();
+            for (MisCursos curTemp : misCursos) {
+                PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario WHERE Curso.idCurso=(?) ORDER BY Curso.nombre AND Usuario.nombre;");
+                st.setInt(1, curTemp.getIdCurso());
+                rs = st.executeQuery();
+
+                while (rs.next()) {
+                    Curso cur2 = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
+                    CursosAlumno.add(cur2);
+                }
+                rs.close();
+                st.close();
+            }
+            return CursosAlumno;
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+    }
+
+    @Override
+    public List<MisCursos> MisCursos(int idAlumno) throws Exception {
+
+        List<MisCursos> misCursos = null;
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT `idUsuario`, `idCurso` FROM `MisCursos` WHERE idUsuario=(?);");
+            st.setInt(1, idAlumno);
+            rs = st.executeQuery();
+
+            misCursos = new ArrayList();
+            while (rs.next()) {
+                MisCursos cur = new MisCursos(rs.getInt(1), rs.getInt(2));
+                misCursos.add((MisCursos) cur);
+            }
+            rs.close();
+            st.close();
+            return misCursos;
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+    }
+
+    @Override
+    public void AgregarMisCursos(int idAlumno, int idCurso) throws Exception {
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO `MisCursos` (`idUsuario`, `idCurso`) VALUES((?),(?));");
+            st.setInt(1, idAlumno);
+            st.setInt(2, idCurso);
+
+            st.executeUpdate();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+    }
+
+    @Override
+    public boolean ExisteMisCursos(int idAlumno, int idCurso) throws Exception {
+        boolean existe = false;
+
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `MisCursos` WHERE `idUsuario`=(?) AND `idCurso`=(?);");
+            st.setInt(1, idAlumno);
+            st.setInt(2, idCurso);
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                existe = true;
+                rs.close();
+                st.close();
+                return existe;
+            } else {
+                existe = false;
+                rs.close();
+                st.close();
+                return existe;
+            }
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+    }
+
+    @Override
+    public void EliminarMisCursos(int idAlumno, int idCurso) throws Exception {
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("DELETE FROM `MisCursos` WHERE `idUsuario`=(?) AND `idCurso`=(?);");
+            st.setInt(1, idAlumno);
+            st.setInt(2, idCurso);
+            st.executeUpdate();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
     }
 
 }

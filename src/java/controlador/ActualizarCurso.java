@@ -7,6 +7,7 @@ package controlador;
 import dao.DaoCurso;
 import dao.DaoCursoImpl;
 import dominio.Curso;
+import dominio.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,8 +21,8 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
 
 /**
  *
@@ -34,49 +35,49 @@ public class ActualizarCurso extends HttpServlet {
     private String pathFiles = "C:\\Users\\Ricardo\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
     private File uploads = new File(pathFiles);
     private String[] extens = {".ico", ".png", ".jpg", ".jpeg"};
+    private DaoCurso dao = new DaoCursoImpl();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DaoCurso dao = new DaoCursoImpl();
+
         String accion = request.getParameter("accion");
         if (accion != null) {
             switch (accion) {
                 case "Guardar":
         try {
+                    HttpSession sesion = request.getSession();
                     int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-                    int idProf = 1;//pendiente extraer de session al loguearse// pero no se modifica en statement
+                    Usuario prof = (Usuario) sesion.getAttribute("user");
+                    int idProf = prof.getId_Usuario();
                     String nombreCur = request.getParameter("nombreCurso");
                     String categoria = request.getParameter("categoria");
                     String descripcion = request.getParameter("descripcion");
                     Part part = request.getPart("imagen");
-                   
+
                     if (isExtension(part.getSubmittedFileName(), extens)) {
                         Curso c = dao.BusCursoXId(idCurso);
-                            boolean delete=deleteFile(c,uploads);
-                            if(delete==true){
-                                String photo = "img\\imgCursos\\" + saveFile(part, uploads);
+                        boolean delete = deleteFile(c, uploads);
+                        if (delete == true) {
+                            String photo = "img\\imgCursos\\" + saveFile(part, uploads);
                             Curso cursoEditado = new Curso(idCurso, idProf, nombreCur, descripcion, categoria, photo);
                             dao.Modificar(cursoEditado);
                             dao.ModificarImagen(cursoEditado);
                             response.sendRedirect("/FescCursos/index.jsp");
-                            }else {
-                                            System.out.println("borrado?" + delete);
-                            }
+                        } else {
+                            System.out.println("borrado?" + delete);
+                        }
 
-                            
-
-                    }else {
+                    } else {
                         Curso cursoEditado = new Curso(idCurso, idProf, nombreCur, descripcion, categoria, "la ruta no se actualiza");
                         dao.Modificar(cursoEditado);
                         response.sendRedirect("/FescCursos/index.jsp");
                     }
-                    
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
-                
-              
+
                 default:
                     request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
                     break;
@@ -118,17 +119,16 @@ public class ActualizarCurso extends HttpServlet {
     }
 
     private boolean deleteFile(Curso cur, File pathUploads) {
-        DaoCurso dao = new DaoCursoImpl();
-        String img =null;
+        String img = null;
 
         File f = null;
         boolean bool = false;
 
         try {
             // create new file
-            img=dao.BusImagenSinRuta(cur);
+            img = dao.BusImagenSinRuta(cur);
             f = new File(pathUploads, img);
-            
+
             // tries to delete a non-existing file
             bool = f.delete();
             // prints

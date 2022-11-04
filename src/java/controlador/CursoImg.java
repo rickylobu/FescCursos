@@ -22,6 +22,7 @@ import dao.DaoCurso;
 import dao.DaoCursoImpl;
 import dominio.Curso;
 import dominio.Usuario;
+import static java.awt.SystemColor.text;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
@@ -50,6 +51,9 @@ public class CursoImg extends HttpServlet {
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("accion");
 
         switch (action) {
@@ -66,6 +70,7 @@ public class CursoImg extends HttpServlet {
 
     private void GuardarCurso(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession sesion = request.getSession();
+
         if (sesion.getAttribute("tipo") == "profesor") {
             try {
                 int idCurso = 0;//autoincrementable en BD

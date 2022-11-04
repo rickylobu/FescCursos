@@ -4,24 +4,21 @@
     Author     : Ricardo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <jsp:include page="boostrap.jsp"></jsp:include>
-        <title>Agregar Curso</title>
+            <title>Agregar Curso</title>
         </head>
 
         <body>
         <jsp:include page="header.jsp"></jsp:include>
         <br>    
     <center>
-        <form action="pruebaServletDao" method="POST">
-            <input type="submit" name="accion" value="Listar">
-            <input type="submit" name="accion" value="Nuevo">
 
-        </form>
         <div class="container-sm">
             <div class="card" >
                 <div class="card-header">

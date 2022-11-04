@@ -2,6 +2,7 @@
 package dao;
 
 import dominio.Curso;
+import dominio.MisCursos;
 import java.util.List;
 
 
@@ -16,4 +17,9 @@ public interface DaoCurso {
     public List<Curso> ListarCursosXidProf(int idProf)throws Exception;
     public boolean PruebaConexion() throws Exception;
     public String BusImagenSinRuta(Curso cur) throws Exception;
+    public List<MisCursos> MisCursos (int idAlumno) throws Exception;
+    public List<Curso> BusCursosXMisCursos (List<MisCursos> misCursos) throws Exception;
+    public void AgregarMisCursos (int idAlumno, int idCurso) throws Exception;
+    public boolean ExisteMisCursos (int idAlumno, int idCurso) throws Exception;
+    public void EliminarMisCursos (int idAlumno, int idCurso)throws Exception;
 }
