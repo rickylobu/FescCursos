@@ -368,4 +368,30 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
         }
     }
 
+    @Override
+    public List<String> Categorias() throws Exception {
+        List<String> lista = null;
+
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT DISTINCT `categoria` FROM `Curso` ORDER BY `categoria` ;");
+
+            lista = new ArrayList();
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                String categoria = rs.getString(1);
+                lista.add(categoria);
+            }
+            rs.close();
+            st.close();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+        return lista;
+    }
+
 }

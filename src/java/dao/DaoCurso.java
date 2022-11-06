@@ -22,4 +22,5 @@ public interface DaoCurso {
     public void AgregarMisCursos (int idAlumno, int idCurso) throws Exception;
     public boolean ExisteMisCursos (int idAlumno, int idCurso) throws Exception;
     public void EliminarMisCursos (int idAlumno, int idCurso)throws Exception;
+    public List<String> Categorias () throws Exception;
 }

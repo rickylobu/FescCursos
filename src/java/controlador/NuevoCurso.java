@@ -4,9 +4,9 @@
  */
 package controlador;
 
-import dao.DaoUsuario;
-import dao.DaoUsuarioImpl;
-import dominio.Usuario;
+import dao.DaoCurso;
+import dao.DaoCursoImpl;
+import dominio.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -22,30 +22,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricardo
  */
-public class AdminDesplegar extends HttpServlet {
-
-    private DaoUsuario dao = new DaoUsuarioImpl();
+public class NuevoCurso extends HttpServlet {
+        
+    private DaoCurso dao = new DaoCursoImpl();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         try {
-            List<Usuario> lista1 = dao.ListarAlumnos();
-            request.setAttribute("alumnos", lista1);
-            List<Usuario> lista2 = dao.ListarProfesores();
-            request.setAttribute("profesores", lista2);
-            List<Usuario> lista3 = dao.ListarAdministradores();
-            request.setAttribute("admins", lista3);
-
-            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("admin.jsp");
+            List<String> cats = dao.Categorias();
+            request.setAttribute("categorias", cats);
+            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("agregarCurso.jsp");
             miRequestDispatcher.forward(request, response);
 
         } catch (Exception ex) {
             Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**

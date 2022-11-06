@@ -68,6 +68,10 @@
         <servlet-name>EliminarMisCursos</servlet-name>
         <servlet-class>controlador.EliminarMisCursos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevoCurso</servlet-name>
+        <servlet-class>controlador.NuevoCurso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>EliminarMisCursos</servlet-name>
         <url-pattern>/EliminarMisCursos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevoCurso</servlet-name>
+        <url-pattern>/NuevoCurso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

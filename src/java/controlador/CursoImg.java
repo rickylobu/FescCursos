@@ -78,6 +78,9 @@ public class CursoImg extends HttpServlet {
                 int idProf = prof.getId_Usuario();
                 String nombreCur = request.getParameter("nombreCurso");
                 String categoria = request.getParameter("categoria");
+                if (categoria.equals("otra") || categoria.equals("Categorias")){
+                categoria=request.getParameter("categoriaNueva");
+                }
                 String descripcion = request.getParameter("descripcion");
                 Part part = request.getPart("imagen");
 

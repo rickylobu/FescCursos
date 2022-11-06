@@ -12,23 +12,27 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-md" style="background-color:#00113D;" >
-            <div class="container-fluid">
+            <div class="container">
                 <center>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <a href="index.jsp">
-                        <img src="img/logoFesc.png" alt="insert" width="92" height="103" padding="2px" />
-                        <h6 class="nav-item" style="color: #AA9A70; font-size: small;"">Home</h6>                    </a>
-                </div>
-                    </center>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="flex-direction: row;" >
-                        <li class="nav-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <a href="index.jsp">
+                            <img src="img/logoFesc.png" alt="insert" width="92" height="103" padding="2px" />
+                            <h6 class="nav-item" style="color: #AA9A70; font-size: small;"">Home</h6>                    
+                        </a>
+                    </div>
+                </center>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll" style="display: flex; justify-content: space-between;">
+                    <ul class="navbar-nav me-auto mb-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; display: contents;" >
+                        <li class="nav-item" style="padding-right:2rem; padding-left: 12rem;">
                             <strong><a class="nav-link" href="CursosTodos?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Cursos</a></strong>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="padding-right:2rem;">
                             <strong><a class="nav-link" href="Asesorias?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Asesorias</a></strong>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="padding-right:12rem;">
                             <strong><a class="nav-link" href="Profesores?listar" style="padding-left:50px; color: #AA9A70; font-size: x-large;">Profesores</a></strong>
                         </li>
                     </ul>

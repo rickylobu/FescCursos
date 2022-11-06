@@ -40,6 +40,9 @@ public class ActualizarCurso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String accion = request.getParameter("accion");
         if (accion != null) {
             switch (accion) {
@@ -51,6 +54,9 @@ public class ActualizarCurso extends HttpServlet {
                     int idProf = prof.getId_Usuario();
                     String nombreCur = request.getParameter("nombreCurso");
                     String categoria = request.getParameter("categoria");
+                    if (categoria.equals("otra") || categoria.equals("Categorias")) {
+                        categoria = request.getParameter("categoriaNueva");
+                    }
                     String descripcion = request.getParameter("descripcion");
                     Part part = request.getPart("imagen");
 
@@ -70,7 +76,7 @@ public class ActualizarCurso extends HttpServlet {
                     } else {
                         Curso cursoEditado = new Curso(idCurso, idProf, nombreCur, descripcion, categoria, "la ruta no se actualiza");
                         dao.Modificar(cursoEditado);
-                        response.sendRedirect("/FescCursos/index.jsp");
+                        request.getRequestDispatcher("MisCursosProfesor").forward(request, response);
                     }
 
                 } catch (Exception e) {
@@ -79,7 +85,7 @@ public class ActualizarCurso extends HttpServlet {
                 break;
 
                 default:
-                    request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
+                    request.getRequestDispatcher("MisCursosProfesor").forward(request, response);
                     break;
             }
         }

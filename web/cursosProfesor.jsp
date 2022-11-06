@@ -24,17 +24,13 @@
         <title>Cursos de <%=prof.getNombre()%></title>
     </head>
     <body>
-                <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"></jsp:include>
 
-        <div class="container-md">
-            <center>
-                <form action="pruebaServletDao" method="POST">
-
-                    <input type="submit" name="accion" value="Nuevo">
-
-                </form> 
-                </body>
-            </center>
+            <div class="container-md">
+                <center>
+                    <a class="btn btn-success" href="NuevoCurso">Nuevo Curso</a>
+                    </body>
+                </center>
             <% if (Cursos.isEmpty()) {%>
             <center>
                 <div class="card-header alert alert-success" role="alert">
@@ -43,13 +39,13 @@
             </center>
             <%} else {%>
             <center>
-                <table class="table align-middle">
+                <table class="table align-middle text-sm-center" >
                     <thead>
                         <tr class="table-primary">
                             <th style="background-color:#00113D; color:#C5B268">idCurso</th>
                             <th style="background-color:#00113D; color:#C5B268">idProfesor</th>
                             <th style="background-color:#00113D; color:#C5B268">NombreCurso</th>
-                            <th style="background-color:#00113D; color:#C5B268">Descripción</th>
+                            <th style="background-color:#00113D; color:#C5B268; width: 12rem;">Descripción</th>
                             <th style="background-color:#00113D; color:#C5B268">Categoria</th>
                             <th style="background-color:#00113D; color:#C5B268">Imágen</th>
                             <th style="background-color:#00113D; color:#C5B268">Acciones</th>
@@ -61,24 +57,24 @@
                             <td><%=curTemp.getId_Curso()%></td>
                             <td><%=curTemp.getId_Profesor()%></td>
                             <td><%=curTemp.getNombre()%></td>
-                            <td><%=curTemp.getDescripcion()%></td>
+                            <td style="width: 15rem;">
+                                <div style="vertical-align: middle;">
+                                <div class="overflow-auto text-sm-center" style="height: 12rem;">
+                                    <%=curTemp.getDescripcion()%>
+                                </div>
+                            </td>
                             <td><%=curTemp.getCategoria()%></td>
-                            <td><img src="<%=curTemp.getRutaImg()%>" width="250" height="200"></td>
-                            <td>
+                            <td style="width: 20rem;"><img src="<%=curTemp.getRutaImg()%>" class="img-fluid"></td>
+                            <td style="width: 5rem;">
                                 <div>
                                     <a href="EditarCurso?id=<%=curTemp.getId_Curso()%>" class="btn btn-warning btn-sm">Editar</a>
                                     <a href="EliminarCurso?id=<%=curTemp.getId_Curso()%>" class="btn btn-danger btn-sm">Eliminar</a>
-
-
                                 </div>
                             </td>
                         </tr>
-
                         <% }%>
-
                     </tbody>
                 </table>
-
             </center>
 
             <%}%>

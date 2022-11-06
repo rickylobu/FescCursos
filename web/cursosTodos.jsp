@@ -43,10 +43,14 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%=curTemp.getNombre()%></h5>
                                     <h6 class="card-title"><%=curTemp.getNombreProf()%></h6>
-                                    <p class="card-text"><%=curTemp.getDescripcion()%></p>
+                                    <h6 class="card-title"><%=curTemp.getCategoria()%></h6>
+                                    <div style="vertical-align: middle;">
+                                        <div class="overflow-auto text-sm-center" style="height: 5rem;">
+                                            <p class="card-text"><%=curTemp.getDescripcion()%></p>
+                                        </div>
+                                    </div>
                                     <a href="VerCurso?id=<%=curTemp.getId_Curso()%>" class="btn btn-primary">Ver Curso</a>
                                 </div>
-                            </div>
                         </center>
                     </div>
                     <%

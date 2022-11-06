@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -36,12 +37,16 @@ public class EditarCurso extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
             Curso curTemp = dao.BusCursoXId(id);
             request.setAttribute("curEdit", curTemp);
+            List<String> cats = dao.Categorias();
+            request.setAttribute("categorias", cats);
             RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("editarCurso.jsp");
             miRequestDispatcher.forward(request, response);
 
