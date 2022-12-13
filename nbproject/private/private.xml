@@ -5,18 +5,20 @@
         <group>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/cursosProfesor.jsp</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/ActualizarCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/MisCursosProfesor.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/header.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/agregarCurso.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/editarPractica.jsp</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/EditarCurso.java</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCurso.java</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/editarCurso.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/NuevoCurso.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/cursosTodos.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/cursosAlumno.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoPractica.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoUsuarioImpl.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/web/agregarPractica.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/AgregarPractica.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/EditarPractica.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dominio/Recurso.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoPracticaImpl.java</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/Registarse.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursoImg.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/controlador/NuevaPractica.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/FescCursos/src/java/dominio/Practica.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,14 +6,11 @@ package controlador;
 
 import dao.DaoCurso;
 import dao.DaoCursoImpl;
-import dao.DaoUsuario;
-import dao.DaoUsuarioImpl;
+import dao.DaoPractica;
+import dao.DaoPracticaImpl;
 import dominio.Curso;
-import dominio.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -26,38 +23,29 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricardo
  */
-public class CursosTodos extends HttpServlet {
+public class NuevaPractica extends HttpServlet {
 
     private DaoCurso dao = new DaoCursoImpl();
-    private DaoUsuario daoU= new DaoUsuarioImpl();
+    private DaoPractica daoP = new DaoPracticaImpl();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("id"));
         try {
-            List<Curso> lista = dao.ListarTodos();
-            request.setAttribute("lista", lista);
-            
-            List<String> cats = dao.Categorias();
-            request.setAttribute("categorias", cats);
-            
-            List<Usuario> profs = daoU.ListarProfesores();
-            List<Usuario> profesores = new ArrayList();
-            for (Usuario profe : profs){
-                String nombreProfesor =profe.getNombre()+" "+profe.getApellidos();
-                Usuario usr= new Usuario(profe.getId_Usuario(), nombreProfesor);
-                profesores.add(usr);
-            }
-            request.setAttribute("profesores", profesores);
-            
-            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("cursosTodos.jsp");
+            Curso cur = dao.BusCursoXId(id);
+            request.setAttribute("CursoPractica", cur);
+            int numeroPrac=daoP.getNumeroPrac(id);
+            request.setAttribute("numeroPractica", numeroPrac);
+            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("agregarPractica.jsp");
             miRequestDispatcher.forward(request, response);
-
         } catch (Exception ex) {
-            Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NuevaPractica.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**

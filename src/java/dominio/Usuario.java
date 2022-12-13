@@ -43,6 +43,11 @@ public class Usuario {
         this.profesor = profesor;
         this.admin = admin;
     }
+
+    public Usuario(int id_Usuario, String nombre) {
+        this.id_Usuario = id_Usuario;
+        this.nombre = nombre;
+    }
     
     
 

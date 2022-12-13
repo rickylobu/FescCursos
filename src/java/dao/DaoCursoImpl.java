@@ -28,7 +28,8 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
     public void Registrar(Curso cur) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO `Curso`(`idCurso`, `idProfesor`, `nombre`, `descripcion`,`categoria`, `imagen`) VALUES((?),(?),(?),(?),(?),(?));");
+            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO `Curso`(`idCurso`, `idProfesor`, `nombre`,"
+                    + " `descripcion`,`categoria`, `imagen`) VALUES((?),(?),(?),(?),(?),(?));");
             st.setInt(1, 0);
             st.setInt(2, cur.getId_Profesor());
             st.setString(3, cur.getNombre());
@@ -100,18 +101,17 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
     }
 
     @Override
-    public Curso BusCursoXNombre(String nombreCurso) throws Exception {
-        Curso cur = null;
+    public List<Curso> BusCursoXNombre(String nombreCurso) throws Exception {
+        List<Curso> lista = null;
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Curso` WHERE `nombre`=(?);");
-            st.setString(1, nombreCurso);
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario WHERE LOWER(Curso.nombre) LIKE LOWER('%" + nombreCurso + "%') ORDER BY Curso.nombre AND Usuario.nombre;");
             rs = st.executeQuery();
-
+            lista = new ArrayList();
             while (rs.next()) {
-                cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-
+                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
+                lista.add(cur);
             }
             rs.close();
             st.close();
@@ -121,8 +121,32 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
             this.Cerrar();
         }
 
-        return cur;
+        return lista;
 
+    }
+
+    @Override
+    public List<Curso> BusCursoXCategoria(String categoria) throws Exception {
+        List<Curso> lista = null;
+
+        try {
+            this.Conectar();
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario WHERE LOWER(Curso.categoria) LIKE LOWER('%" + categoria + "%') ORDER BY Curso.nombre AND Usuario.nombre;");
+            rs = st.executeQuery();
+            lista = new ArrayList();
+            while (rs.next()) {
+                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
+                lista.add(cur);
+            }
+            rs.close();
+            st.close();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.Cerrar();
+        }
+
+        return lista;
     }
 
     @Override
@@ -131,7 +155,7 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario ORDER BY Curso.nombre AND Usuario.nombre ;");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario ORDER BY Curso.nombre AND Usuario.nombre;");
 
             lista = new ArrayList();
             rs = st.executeQuery();
@@ -140,7 +164,6 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
                 Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
 
                 lista.add(cur);
-
             }
             rs.close();
             st.close();
@@ -159,14 +182,14 @@ public class DaoCursoImpl extends ConexionClever implements DaoCurso {
 
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM `Curso` WHERE `idProfesor`= (?);");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT idCurso, idProfesor, Curso.nombre, descripcion, categoria, imagen, Usuario.nombre AS nombreProfesor, Usuario.apellidos FROM Curso INNER JOIN Usuario ON Curso.idProfesor =Usuario.idUsuario WHERE Curso.idProfesor = (?) ORDER BY Curso.nombre AND Usuario.nombre;");
             st.setInt(1, idProf);
 
             lista = new ArrayList();
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                Curso cur = new Curso(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) + " " + rs.getString(8));
 
                 lista.add(cur);
 

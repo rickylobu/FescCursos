@@ -12,7 +12,8 @@ public interface DaoCurso {
     public void ModificarImagen (Curso cur)throws Exception;
     public void Eliminar (Curso cur)throws Exception;
     public Curso BusCursoXId(int id)throws Exception;
-    public Curso BusCursoXNombre(String nombreCurso)throws Exception;
+    public List<Curso> BusCursoXNombre(String nombreCurso)throws Exception;
+    public List<Curso> BusCursoXCategoria(String categoria)throws Exception;
     public List<Curso> ListarTodos()throws Exception;
     public List<Curso> ListarCursosXidProf(int idProf)throws Exception;
     public boolean PruebaConexion() throws Exception;

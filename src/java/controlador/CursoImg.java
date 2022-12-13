@@ -62,7 +62,7 @@ public class CursoImg extends HttpServlet {
                 break;
 
             default:
-                request.getRequestDispatcher("pruebaServletDao?accion=Listar").forward(request, response);
+                request.getRequestDispatcher("CursosTodos?listar").forward(request, response);
 
                 break;
         }
@@ -104,8 +104,8 @@ public class CursoImg extends HttpServlet {
 
         }
 
-        RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("index.jsp");
-        miRequestDispatcher.forward(request, response);
+        request.getRequestDispatcher("MisCursosProfesor").forward(request, response);
+
     }
 
     private String saveFile(Part part, File pathUploads) {

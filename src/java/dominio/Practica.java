@@ -11,17 +11,29 @@ package dominio;
 public class Practica {
     private int id_Practica;
         private int id_Curso;
+        private int numeroPrac;
         private String nombre;
         private String descripcion;
         private String link_Video;
 
-    public Practica(int id_Practica, int id_Curso, String nombre, String descripcion, String link_Video) {
+    public Practica(int id_Practica, int id_Curso, int numeroPrac, String nombre, String descripcion, String link_Video) {
         this.id_Practica = id_Practica;
         this.id_Curso = id_Curso;
+        this.numeroPrac = numeroPrac;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.link_Video = link_Video;
     }
+
+    public int getNumeroPrac() {
+        return numeroPrac;
+    }
+
+    public void setNumeroPrac(int numeroPrac) {
+        this.numeroPrac = numeroPrac;
+    }
+
+   
 
     public int getId_Practica() {
         return id_Practica;

@@ -6,7 +6,10 @@ package controlador;
 
 import dao.DaoCurso;
 import dao.DaoCursoImpl;
+import dao.DaoPractica;
+import dao.DaoPracticaImpl;
 import dominio.Curso;
+import dominio.Practica;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +36,7 @@ import javax.servlet.http.Part;
 public class EditarCurso extends HttpServlet {
 
     private DaoCurso dao = new DaoCursoImpl();
+    private DaoPractica daoP = new DaoPracticaImpl();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,6 +51,8 @@ public class EditarCurso extends HttpServlet {
             request.setAttribute("curEdit", curTemp);
             List<String> cats = dao.Categorias();
             request.setAttribute("categorias", cats);
+            List<Practica> listaPracticas= daoP.ListarPracticasXidCurso(id);
+            request.setAttribute("practicas", listaPracticas);
             RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("editarCurso.jsp");
             miRequestDispatcher.forward(request, response);
 

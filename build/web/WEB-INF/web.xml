@@ -72,6 +72,34 @@
         <servlet-name>NuevoCurso</servlet-name>
         <servlet-class>controlador.NuevoCurso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CursosForm</servlet-name>
+        <servlet-class>controlador.CursosForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevaPractica</servlet-name>
+        <servlet-class>controlador.NuevaPractica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AgregarPractica</servlet-name>
+        <servlet-class>controlador.AgregarPractica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarPractica</servlet-name>
+        <servlet-class>controlador.EditarPractica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActualizarPractica</servlet-name>
+        <servlet-class>controlador.ActualizarPractica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AgregarRecurso</servlet-name>
+        <servlet-class>controlador.AgregarRecurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarResurso</servlet-name>
+        <servlet-class>controlador.EliminarResurso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -143,6 +171,34 @@
     <servlet-mapping>
         <servlet-name>NuevoCurso</servlet-name>
         <url-pattern>/NuevoCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CursosForm</servlet-name>
+        <url-pattern>/CursosForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaPractica</servlet-name>
+        <url-pattern>/NuevaPractica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarPractica</servlet-name>
+        <url-pattern>/AgregarPractica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarPractica</servlet-name>
+        <url-pattern>/EditarPractica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarPractica</servlet-name>
+        <url-pattern>/ActualizarPractica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarRecurso</servlet-name>
+        <url-pattern>/AgregarRecurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarResurso</servlet-name>
+        <url-pattern>/EliminarResurso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

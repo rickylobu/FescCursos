@@ -29,7 +29,6 @@
             <div class="container-md">
                 <center>
                     <a class="btn btn-success" href="NuevoCurso">Nuevo Curso</a>
-                    </body>
                 </center>
             <% if (Cursos.isEmpty()) {%>
             <center>
@@ -59,9 +58,9 @@
                             <td><%=curTemp.getNombre()%></td>
                             <td style="width: 15rem;">
                                 <div style="vertical-align: middle;">
-                                <div class="overflow-auto text-sm-center" style="height: 12rem;">
-                                    <%=curTemp.getDescripcion()%>
-                                </div>
+                                    <div class="overflow-auto text-sm-center" style="height: 12rem;">
+                                        <%=curTemp.getDescripcion()%>
+                                    </div>
                             </td>
                             <td><%=curTemp.getCategoria()%></td>
                             <td style="width: 20rem;"><img src="<%=curTemp.getRutaImg()%>" class="img-fluid"></td>
@@ -76,7 +75,6 @@
                     </tbody>
                 </table>
             </center>
-
             <%}%>
-
+    </body>
 </html>
