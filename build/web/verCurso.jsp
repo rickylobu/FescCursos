@@ -4,6 +4,7 @@
     Author     : Ricardo
 --%>
 
+<%@page import="dominio.Practica"%>
 <%@page import="dominio.Curso"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,6 +17,8 @@
             Curso curso = (Curso) request.getAttribute("cursoSelec");
             String resp = (String) request.getAttribute("resp");
             String resp2 = (String) request.getAttribute("resp2");
+            List<Practica> practicas = (List<Practica>) request.getAttribute("practicas");
+
         %>
         <title><%=curso.getNombre()%></title>
     </head>
@@ -71,6 +74,41 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="container-sm">
+            <div class="card" >
+                <div class="card-header">
+                    Practicas
+                </div>
+                <div  class="card-body"style="justify-content: space-between; align-items: center;">
+                    <div class="row" style="background-color:#00113D; color:#C5B268">
+                        <div class="col-2">
+                            <label for="id" class="form-label"># Practica</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                        </div>
+                        <div class="col-4">
+                            <label for="formGroupExampleInput" class="form-label">Acciones</label>
+                        </div>
+                    </div>
+                    <br>
+                    <%for (Practica prac : practicas) {%>
+                    <div class="row">
+                        <div class="col-2">
+                            <label for="id" class="form-label"><%=prac.getNumeroPrac()%></label>
+                        </div>
+                        <div class="col-6">
+                            <label for="formGroupExampleInput" class="form-label"><%=prac.getNombre()%></label>
+                        </div>
+                        <div class="col-2">
+                            <a href="VerPractica?id=<%=prac.getId_Practica()%>" class="btn btn-warning btn-sm">Ver Práctica</a>
+                        </div>
+                    </div>
+                    <br>
+                    <%}%>
+                </div>
             </div>
         </div>
     </center>

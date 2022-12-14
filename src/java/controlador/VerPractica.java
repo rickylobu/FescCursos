@@ -4,12 +4,10 @@
  */
 package controlador;
 
-import dao.DaoCurso;
-import dao.DaoCursoImpl;
 import dao.DaoPractica;
 import dao.DaoPracticaImpl;
-import dominio.Curso;
 import dominio.Practica;
+import dominio.Recurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -25,34 +23,31 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricardo
  */
-public class VerCurso extends HttpServlet {
-
-    private DaoCurso dao = new DaoCursoImpl();
+public class VerPractica extends HttpServlet {
     private DaoPractica daoP = new DaoPracticaImpl();
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("text/html; charset=UTF-8");
+response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
-            Curso curTemp = dao.BusCursoXId(id);
-            request.setAttribute("cursoSelec", curTemp);
-            List<Practica> listaPracticas= daoP.ListarPracticasXidCurso(id);
-            request.setAttribute("practicas", listaPracticas);
-            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("verCurso.jsp");
+            Practica pracTemp=daoP.BusPracticaXId(id);
+            request.setAttribute("practica", pracTemp);
+            List<Recurso> listaRecursos=daoP.BusRecursosXIdPractica(id);
+            request.setAttribute("recursos", listaRecursos);
+            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("VerPractica.jsp");
             miRequestDispatcher.forward(request, response);
-
-        } catch (Exception ex) {
+            
+            } catch (Exception ex) {
             Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
-        
+        } 
     }
 
+    
+    
+    
     
     /**
      * Returns a short description of the servlet.

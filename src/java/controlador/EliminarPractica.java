@@ -25,35 +25,35 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricardo
  */
-public class VerCurso extends HttpServlet {
+public class EliminarPractica extends HttpServlet {
 
-    private DaoCurso dao = new DaoCursoImpl();
-    private DaoPractica daoP = new DaoPracticaImpl();
+    private DaoPractica dao = new DaoPracticaImpl();
+    private DaoCurso daoC = new DaoCursoImpl();
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html; charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
-            Curso curTemp = dao.BusCursoXId(id);
-            request.setAttribute("cursoSelec", curTemp);
-            List<Practica> listaPracticas= daoP.ListarPracticasXidCurso(id);
+            Practica prac = dao.BusPracticaXId(id);
+            int idCurso = prac.getId_Curso();
+            dao.Eliminar(prac);
+
+            Curso curTemp = daoC.BusCursoXId(idCurso);
+            request.setAttribute("curEdit", curTemp);
+            List<String> cats = daoC.Categorias();
+            request.setAttribute("categorias", cats);
+            List<Practica> listaPracticas = dao.ListarPracticasXidCurso(idCurso);
             request.setAttribute("practicas", listaPracticas);
-            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("verCurso.jsp");
+            RequestDispatcher miRequestDispatcher = request.getRequestDispatcher("editarCurso.jsp");
             miRequestDispatcher.forward(request, response);
 
         } catch (Exception ex) {
-            Logger.getLogger(pruebaServletDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EliminarPractica.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-        
     }
 
-    
     /**
      * Returns a short description of the servlet.
      *

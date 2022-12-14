@@ -100,6 +100,14 @@
         <servlet-name>EliminarResurso</servlet-name>
         <servlet-class>controlador.EliminarResurso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarPractica</servlet-name>
+        <servlet-class>controlador.EliminarPractica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerPractica</servlet-name>
+        <servlet-class>controlador.VerPractica</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>
         <url-pattern>/pruebaServletDao</url-pattern>
@@ -199,6 +207,14 @@
     <servlet-mapping>
         <servlet-name>EliminarResurso</servlet-name>
         <url-pattern>/EliminarResurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarPractica</servlet-name>
+        <url-pattern>/EliminarPractica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerPractica</servlet-name>
+        <url-pattern>/VerPractica</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

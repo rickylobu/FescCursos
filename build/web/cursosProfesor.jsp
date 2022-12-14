@@ -65,8 +65,9 @@
                             <td><%=curTemp.getCategoria()%></td>
                             <td style="width: 20rem;"><img src="<%=curTemp.getRutaImg()%>" class="img-fluid"></td>
                             <td style="width: 5rem;">
-                                <div>
+                                <div class="row">
                                     <a href="EditarCurso?id=<%=curTemp.getId_Curso()%>" class="btn btn-warning btn-sm">Editar</a>
+                                </div><div class="row" style="padding-top: .200rem"><strong><label style="font-size: 12px">es necesario eliminar todas las prácticas</label></strong></div><div class="row">    
                                     <a href="EliminarCurso?id=<%=curTemp.getId_Curso()%>" class="btn btn-danger btn-sm">Eliminar</a>
                                 </div>
                             </td>
