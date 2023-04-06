@@ -13,7 +13,7 @@ public class ConexionClever {
     
     private final String JDBC_DRIVER="com.mysql.cj.jdbc.Driver";
     
-    private final String BD_URL="jdbc:mysql://ugspusywmp0tjfhr:TSd38Rr0WKJad8Qoqg6P@bwxzxwin29jpuu5uwcnd-mysql.services.clever-cloud.com:3306/bwxzxwin29jpuu5uwcnd";
+    private final String BD_URL="jdbc:mysql://ugspusywmp0tjfhr:nsZJ9u3pCgZnVrpVqkNi@bwxzxwin29jpuu5uwcnd-mysql.services.clever-cloud.com:3306/bwxzxwin29jpuu5uwcnd";
                                 
 
     Statement st =null;

@@ -35,8 +35,7 @@
             flotante y activo. En hover/focus/active, traemos un elemento particular al 
             frente con un valor de índice z más alto para mostrar su borde sobre los elementos hermanos.
     
-             */
-        %>
+          
         <style>
 
             $zindex-dropdown:                   1000;
@@ -52,7 +51,8 @@
 
 
         </style>
-
+   */
+        %>
     </head>
     <body>
         <!-- Option 1: Bootstrap Bundle with Popper -->
