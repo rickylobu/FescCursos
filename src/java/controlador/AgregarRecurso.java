@@ -33,7 +33,7 @@ public class AgregarRecurso extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private DaoPractica dao = new DaoPracticaImpl();
-    private String pathFiles = "C:\\Users\\Ricardo\\Documents\\NetBeansProjects\\FescCursos\\web\\recursos\\";
+    private String pathFiles = "C:\\Users\\avata\\Documents\\NetBeansProjects\\FescCursos\\web\\recursos\\";
     private File uploads = new File(pathFiles);
 
     @Override

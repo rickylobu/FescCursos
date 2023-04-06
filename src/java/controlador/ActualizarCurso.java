@@ -32,7 +32,7 @@ import javax.servlet.http.Part;
 public class ActualizarCurso extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private String pathFiles = "C:\\Users\\Ricardo\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
+    private String pathFiles = "C:\\Users\\avata\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
     private File uploads = new File(pathFiles);
     private String[] extens = {".ico", ".png", ".jpg", ".jpeg"};
     private DaoCurso dao = new DaoCursoImpl();

@@ -35,7 +35,7 @@ public class CursoImg extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private DaoCurso dao = new DaoCursoImpl();
-    private String pathFiles = "C:\\Users\\Ricardo\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
+    private String pathFiles = "C:\\Users\\avata\\Documents\\NetBeansProjects\\FescCursos\\web\\img\\imgCursos\\";
     private File uploads = new File(pathFiles);
     private String[] extens = {".ico", ".png", ".jpg", ".jpeg"};
 
