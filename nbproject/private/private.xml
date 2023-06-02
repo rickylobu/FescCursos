@@ -3,38 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/VerPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/MisCursosProfesor.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarResurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/pruebaServletDao.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/AdminDesplegar.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/HacerAdmin.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/ActualizarCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/IniciarSesion.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EditarCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/ConexionClever.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/VerCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/NuevaPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosForm.java</file>
             <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/VerPractica.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursoImg.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/AgregarPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/ActualizarPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosTodos.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/MisCursosAgregar.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/header.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/NuevoCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/MisCursosAlumno.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EditarPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarMisCursos.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/HacerAlumno.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/HacerProfesor.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Registarse.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/AgregarRecurso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>
