@@ -6,107 +6,107 @@
     </servlet>
     <servlet>
         <servlet-name>CursoImg</servlet-name>
-        <servlet-class>controlador.CursoImg</servlet-class>
+        <servlet-class>controlador.Cursos.CursoImg</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditarCurso</servlet-name>
-        <servlet-class>controlador.EditarCurso</servlet-class>
+        <servlet-class>controlador.Cursos.EditarCurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActualizarCurso</servlet-name>
-        <servlet-class>controlador.ActualizarCurso</servlet-class>
+        <servlet-class>controlador.Cursos.ActualizarCurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EliminarCurso</servlet-name>
-        <servlet-class>controlador.EliminarCurso</servlet-class>
+        <servlet-class>controlador.Cursos.EliminarCurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Registarse</servlet-name>
-        <servlet-class>controlador.Registarse</servlet-class>
+        <servlet-class>controlador.Usuarios.Registarse</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IniciarSesion</servlet-name>
-        <servlet-class>controlador.IniciarSesion</servlet-class>
+        <servlet-class>controlador.Usuarios.IniciarSesion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminDesplegar</servlet-name>
-        <servlet-class>controlador.AdminDesplegar</servlet-class>
+        <servlet-class>controlador.Usuarios.AdminDesplegar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HacerProfesor</servlet-name>
-        <servlet-class>controlador.HacerProfesor</servlet-class>
+        <servlet-class>controlador.Usuarios.HacerProfesor</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HacerAlumno</servlet-name>
-        <servlet-class>controlador.HacerAlumno</servlet-class>
+        <servlet-class>controlador.Usuarios.HacerAlumno</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HacerAdmin</servlet-name>
-        <servlet-class>controlador.HacerAdmin</servlet-class>
+        <servlet-class>controlador.Usuarios.HacerAdmin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CursosTodos</servlet-name>
-        <servlet-class>controlador.CursosTodos</servlet-class>
+        <servlet-class>controlador.Cursos.CursosTodos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MisCursosProfesor</servlet-name>
-        <servlet-class>controlador.MisCursosProfesor</servlet-class>
+        <servlet-class>controlador.Cursos.MisCursosProfesor</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MisCursosAlumno</servlet-name>
-        <servlet-class>controlador.MisCursosAlumno</servlet-class>
+        <servlet-class>controlador.Cursos.MisCursosAlumno</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerCurso</servlet-name>
-        <servlet-class>controlador.VerCurso</servlet-class>
+        <servlet-class>controlador.Cursos.VerCurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MisCursosAgregar</servlet-name>
-        <servlet-class>controlador.MisCursosAgregar</servlet-class>
+        <servlet-class>controlador.Cursos.MisCursosAgregar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EliminarMisCursos</servlet-name>
-        <servlet-class>controlador.EliminarMisCursos</servlet-class>
+        <servlet-class>controlador.Cursos.EliminarMisCursos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NuevoCurso</servlet-name>
-        <servlet-class>controlador.NuevoCurso</servlet-class>
+        <servlet-class>controlador.Cursos.NuevoCurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CursosForm</servlet-name>
-        <servlet-class>controlador.CursosForm</servlet-class>
+        <servlet-class>controlador.Cursos.CursosForm</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NuevaPractica</servlet-name>
-        <servlet-class>controlador.NuevaPractica</servlet-class>
+        <servlet-class>controlador.Practicas.NuevaPractica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AgregarPractica</servlet-name>
-        <servlet-class>controlador.AgregarPractica</servlet-class>
+        <servlet-class>controlador.Practicas.AgregarPractica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditarPractica</servlet-name>
-        <servlet-class>controlador.EditarPractica</servlet-class>
+        <servlet-class>controlador.Practicas.EditarPractica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActualizarPractica</servlet-name>
-        <servlet-class>controlador.ActualizarPractica</servlet-class>
+        <servlet-class>controlador.Practicas.ActualizarPractica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AgregarRecurso</servlet-name>
-        <servlet-class>controlador.AgregarRecurso</servlet-class>
+        <servlet-class>controlador.Practicas.AgregarRecurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EliminarResurso</servlet-name>
-        <servlet-class>controlador.EliminarResurso</servlet-class>
+        <servlet-class>controlador.Practicas.EliminarResurso</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EliminarPractica</servlet-name>
-        <servlet-class>controlador.EliminarPractica</servlet-class>
+        <servlet-class>controlador.Practicas.EliminarPractica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerPractica</servlet-name>
-        <servlet-class>controlador.VerPractica</servlet-class>
+        <servlet-class>controlador.Practicas.VerPractica</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pruebaServletDao</servlet-name>

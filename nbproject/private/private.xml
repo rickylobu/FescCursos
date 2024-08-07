@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCurso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursoImg.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarPractica.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/cursosTodos.jsp</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/index.jsp</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosTodos.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/editarCurso.jsp</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarCurso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/editarPractica.jsp</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosForm.java</file>
+        </group>
     </open-files>
 </project-private>
