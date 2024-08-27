@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dominio/Usuario.java</file>
             <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursoImg.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarPractica.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
             <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/cursosTodos.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/index.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosTodos.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/editarCurso.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/EliminarCurso.java</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/editarPractica.jsp</file>
-            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/CursosForm.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Cursos/CursosForm.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Cursos/EditarCurso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/web/header.jsp</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoUsuario.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dominio/Curso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/DaoCursoImpl.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Cursos/CursosTodos.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Cursos/ActualizarCurso.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Usuarios/IniciarSesion.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/dao/ConexionClever.java</file>
+            <file>file:/C:/Users/avata/Documents/NetBeansProjects/FescCursos/src/java/controlador/Cursos/CursoImg.java</file>
         </group>
     </open-files>
 </project-private>
